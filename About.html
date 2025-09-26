@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FHG Global - Our Vision and Impact</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2c36e9b7b6.js" crossorigin="anonymous"></script>
+    <style>
+        /* CSS Variables for Consistency */
+        :root {
+            --primary-color: #6a11cb; /* Deep Violet */
+            --secondary-color: #2575fc; /* Bright Blue */
+            --accent-color: #ffd700; /* Gold */
+            --text-color: #333;
+            --clean-bg: #f8f9fa; 
+            --nav-gradient: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        /* Global Reset and Body Styling */
+        body {
+            margin: 0;
+            font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
+            background-color: var(--clean-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: var(--nav-gradient);
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
+        .section {
+            max-width: 1100px;
+            margin: 4rem auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem;
+            animation: fadeIn 1s ease-out;
+        }
+        .section h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            border-bottom: 4px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2.5rem;
+        }
+        .section p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        /* About Specific */
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+            align-items: flex-start;
+        }
+        .about-text {
+            flex: 2;
+            min-width: 300px;
+            border-left: 5px solid var(--secondary-color);
+            padding-left: 1.5rem;
+        }
+        .about-imgs {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+            min-width: 200px;
+        }
+        .about-imgs img {
+            width: 100%;
+            max-width: 280px;
+            height: 320px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            filter: grayscale(10%);
+            opacity: 0; /* Prepare for animation */
+        }
+        /* Slide Motion Graphics (Animations) */
+        .about-imgs img:nth-child(1) { 
+            animation: slideInRight 1s cubic-bezier(0.19, 1, 0.22, 1) 0.3s forwards; 
+        }
+        .about-imgs img:nth-child(2) { 
+            animation: slideInRight 1s cubic-bezier(0.19, 1, 0.22, 1) 0.5s forwards; 
+        }
+
+        .about-imgs img:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 15px 35px rgba(37, 117, 252, 0.4);
+            filter: grayscale(0%);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(90deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: #fff;
+            text-align: center;
+            padding: 2.5rem 1rem 1.5rem 1rem;
+            margin-top: 5rem;
+        }
+        .footer-social {
+            margin: 1.5rem 0;
+        }
+        .footer-social a {
+            color: #fff;
+            margin: 0 1rem;
+            font-size: 1.8rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .footer-social a:hover {
+            color: var(--accent-color);
+            transform: scale(1.2);
+        }
+
+        /* Keyframe Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 800px) {
+            .about-content {
+                flex-direction: column;
+                align-items: center;
+                gap: 2rem;
+            }
+            .about-text {
+                order: 2; /* Move text below images on small screens */
+                border-left: none;
+                padding-left: 0;
+            }
+            .about-imgs {
+                order: 1;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: center;
+                width: 100%;
+            }
+            .about-imgs img {
+                width: 45%;
+                height: 250px;
+                max-width: none;
+            }
+        }
+        @media (max-width: 600px) {
+            .about-imgs img {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Services.html">Services</a></li>
+                <li><a href="AboutUs.html">About Us</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="section" id="about">
+        <div class="container">
+            <h2>Our Global Mission: Cultivating Independent Leaders</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>FHG Organization Global is spearheaded by a dynamic team of Nigerian experts with a unified commitment: to drastically reduce youth underemployment by providing unparalleled digital and entrepreneurial training.</p>
+                    <p>We operate as a high-growth ecosystem, not just a training center. Our robust system recruits, mentors, and elevates young potentials, turning raw talent into highly proficient, job-creating professionals capable of competing on the world stage.</p>
+
+                    <h3>Scale of Impact</h3>
+                    <p>With an active global community of **over 50,000 Nigerian youth**, FHG has become a significant force in the digital industry. This collective network is dedicated to mutual growth, knowledge sharing, and driving innovative projects across multiple digital domains.</p>
+                    
+                    <h3>Core Philosophy</h3>
+                    <p>Our success is founded on the pillars of **Community, Elite Mentorship, and Relentless Learning**. We instill a mindset of ownership and excellence, ensuring our graduates are not just employees, but genuinely independent leaders prepared for any economic future.</p>
+                </div>
+                <div class="about-imgs">
+                    <img src="mr jjjj.jpg" alt="Leadership Team Member" loading="lazy">
+                    <img src="Mr o.jpg" alt="Community Impact Image" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-social">
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:info@fhgorg.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2024 FHG Organization Global. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

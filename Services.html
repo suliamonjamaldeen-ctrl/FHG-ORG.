@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FHG Global - Specialized Services & Training</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/2c36e9b7b6.js" crossorigin="anonymous"></script>
+    <style>
+        /* CSS Variables for Consistency */
+        :root {
+            --primary-color: #6a11cb; /* Deep Violet */
+            --secondary-color: #2575fc; /* Bright Blue */
+            --accent-color: #ffd700; /* Gold */
+            --text-color: #333;
+            --clean-bg: #f8f9fa; 
+            --nav-gradient: linear-gradient(90deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+        }
+
+        /* Global Reset and Body Styling */
+        body {
+            margin: 0;
+            font-family: 'Montserrat', 'Roboto', Arial, sans-serif;
+            background-color: var(--clean-bg);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: var(--nav-gradient);
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        /* Section Styling */
+        .section {
+            max-width: 1100px;
+            margin: 4rem auto;
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+            padding: 2.5rem;
+        }
+        .section h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            border-bottom: 4px solid var(--accent-color);
+            display: inline-block;
+            padding-bottom: 0.5rem;
+            margin-bottom: 2.5rem;
+            text-align: center;
+            width: 100%;
+        }
+
+        /* Services Grid and Cards */
+        .services-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .service-card {
+            background: linear-gradient(145deg, #ffffff, #eef3f8);
+            border-radius: 15px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-left: 5px solid var(--secondary-color);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            opacity: 0; /* Prepare for animation */
+            transform: translateY(50px);
+        }
+        /* Slide Motion Graphics (Animations) */
+        .service-card:nth-child(1) { animation: slideInUp 0.7s ease-out 0.1s forwards; }
+        .service-card:nth-child(2) { animation: slideInUp 0.7s ease-out 0.2s forwards; }
+        .service-card:nth-child(3) { animation: slideInUp 0.7s ease-out 0.3s forwards; }
+        .service-card:nth-child(4) { animation: slideInUp 0.7s ease-out 0.4s forwards; }
+        .service-card:nth-child(5) { animation: slideInUp 0.7s ease-out 0.5s forwards; }
+        .service-card:nth-child(6) { animation: slideInUp 0.7s ease-out 0.6s forwards; }
+        .service-card:nth-child(7) { animation: slideInUp 0.7s ease-out 0.7s forwards; }
+        .service-card:nth-child(8) { animation: slideInUp 0.7s ease-out 0.8s forwards; }
+        
+        .service-card:hover {
+            box-shadow: 0 10px 30px rgba(var(--secondary-color), 0.3);
+            transform: translateY(-8px) scale(1.03);
+            border-left-color: var(--primary-color);
+        }
+        .service-card h3 {
+            color: var(--primary-color);
+            margin-top: 0;
+            font-size: 1.6rem;
+            margin-bottom: 0.8rem;
+        }
+        .service-card p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(90deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            color: #fff;
+            text-align: center;
+            padding: 2.5rem 1rem 1.5rem 1rem;
+            margin-top: 5rem;
+        }
+        .footer-social {
+            margin: 1.5rem 0;
+        }
+        .footer-social a {
+            color: #fff;
+            margin: 0 1rem;
+            font-size: 1.8rem;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .footer-social a:hover {
+            color: var(--accent-color);
+            transform: scale(1.2);
+        }
+
+        /* Keyframe Animation */
+        @keyframes slideInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Mobile Responsiveness */
+        @media (max-width: 600px) {
+            .section {
+                padding: 1.5rem;
+            }
+            .services-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="Services.html">Services</a></li>
+                <li><a href="AboutUs.html">About Us</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <section class="section" id="services">
+        <div class="container">
+            <h2>Our Specialized Digital & Marketing Programs</h2>
+            <p style="text-align: center; font-size: 1.2rem; color: #444; margin-bottom: 3rem;">We offer structured, intensive training in the world's most profitable skills, designed to transition youth into high-earning independent professionals.</p>
+            
+            <div class="services-list">
+                <div class="service-card">
+                    <h3>Digital Marketing Strategy</h3>
+                    <p>Advanced mastery of Email, Video, Influencer, Social Media Marketing, and SEO to generate high-value Web Traffic.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Professional Graphics Design</h3>
+                    <p>Expert training in Corporate Branding, Logo creation, compelling Social Media Visuals, and high-conversion Flyers/Ad creatives.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Video Animation Production</h3>
+                    <p>Specialization in creating persuasive Explainer Videos, dynamic Motion Graphics, and professional Intros/Outros for global clients.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Programming & Core Tech Skills</h3>
+                    <p>Foundation in Web Development, basic App Development principles, and crucial IT/Tech Support for business operations.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Music and Audio Engineering</h3>
+                    <p>Skills in professional Mixing, Mastering, commercial Jingles, and clear, authoritative Voiceovers for content creation.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Strategic Content & Translation</h3>
+                    <p>Mastery of Content Writing, high-converting Copywriting, Technical Writing, and seamless professional Translation services.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Network Marketing Mastery</h3>
+                    <p>In-depth Training, dedicated Mentorship, and ethical Growth Strategies for building large, profitable, and sustainable networks.</p>
+                </div>
+                <div class="service-card">
+                    <h3>Financial and Leadership Literacy</h3>
+                    <p>Crucial soft skills including professional team building, advanced communication, financial management, and sales psychology.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-social">
+                <a href="https://facebook.com" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://twitter.com" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="https://instagram.com" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="mailto:info@fhgorg.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>&copy; 2024 FHG Organization Global. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
